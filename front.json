@@ -1,0 +1,3386 @@
+{
+"survey":[
+ {
+  "type": "start",
+  "name": "start"
+ },
+ {
+  "type": "end",
+  "name": "end"
+ },
+ {
+  "type": "today",
+  "name": "today"
+ },
+ {
+  "type": "text",
+  "name": "projet",
+  "label": "nom du projet"
+ },
+ {
+  "type": "begin_group",
+  "name": "site_group",
+  "label": "Le Site",
+  "appearance": "field-list"
+ },
+ {
+  "type": "calculate",
+  "name": "adresse_color",
+  "calculation": "if(string-length(${adresse}) > 0, \"#008B8B\", \"#8B0000\")"
+ },
+ {
+  "type": "text",
+  "name": "adresse",
+  "label": "<span style=\"color:${adresse_color}\">Adresse du site:<\/span>"
+ },
+ {
+  "type": "calculate",
+  "name": "contr_inter_color",
+  "calculation": "if(string-length(${contr_inter}) > 0, \"#008B8B\", \"#8B0000\")"
+ },
+ {
+  "type": "text",
+  "name": "contr_inter",
+  "label": "<span style=\"color:${contr_inter_color}\">Contraintes d'intervention (horaires, saisons) :<\/span>"
+ },
+ {
+  "type": "calculate",
+  "name": "contr_reglem_color",
+  "calculation": "if(string-length(${contr_reglem}) > 0, \"#008B8B\", \"#8B0000\")"
+ },
+ {
+  "type": "text",
+  "name": "contr_reglem",
+  "label": "<span style=\"color:${contr_reglem_color}\">Contraintes réglementaires : ERP, ICPE, ateliers, supérieure à 800 m² ?<\/span>"
+ },
+ {
+  "type": "calculate",
+  "name": "is_PL_acces_color",
+  "calculation": "if(string-length(${is_PL_acces}) > 0, \"#008B8B\", \"#8B0000\")"
+ },
+ {
+  "type": "select_one yesno",
+  "name": "is_PL_acces",
+  "label": "<span style=\"color:${is_PL_acces_color}\">Accès PL, véhicule de chantier : <\/span>"
+ },
+ {
+  "type": "calculate",
+  "name": "contr_reg_color",
+  "calculation": "if(string-length(${contr_reg}) > 0, \"#008B8B\", \"#8B0000\")"
+ },
+ {
+  "type": "text",
+  "name": "contr_reg",
+  "label": "<span style=\"color:${contr_reg_color}\">Contraintes : lignes HTA existantes, réseau (vous pouvez mettre des photos à la prochaine question<\/span>"
+ },
+ {
+  "type": "calculate",
+  "name": "i11_color",
+  "calculation": "if(string-length(${i11}) > 0, \"#008B8B\", \"#8B0000\")"
+ },
+ {
+  "type": "image",
+  "name": "i11",
+  "label": "<span style=\"color:${i11_color}\">Photo contraintes <\/span>",
+  "appearance": "new"
+ },
+ {
+  "type": "geopoint",
+  "name": "g11",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i11} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c11",
+  "label": "commentaire"
+ },
+ {
+  "type": "image",
+  "name": "i12",
+  "label": "Voulez-vous ajouter d'autres photos ?",
+  "hint": "photo contraintes",
+  "relevant": "${i11} != ''"
+ },
+ {
+  "type": "geopoint",
+  "name": "g12",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i12} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c12",
+  "label": "commentaire",
+  "relevant": "${i11} != ''"
+ },
+ {
+  "type": "image",
+  "name": "i13",
+  "label": "Voulez-vous ajouter d'autres photos ?",
+  "hint": "photo contraintes",
+  "relevant": "${i12} != ''"
+ },
+ {
+  "type": "geopoint",
+  "name": "g13",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i13} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c13",
+  "label": "commentaire",
+  "relevant": "${i12} != ''"
+ },
+ {
+  "type": "image",
+  "name": "i14",
+  "label": "Voulez-vous ajouter d'autres photos ?",
+  "hint": "photo contraintes",
+  "relevant": "${i13} != ''"
+ },
+ {
+  "type": "geopoint",
+  "name": "g14",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i14} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c14",
+  "label": "commentaire",
+  "relevant": "${i13} != ''"
+ },
+ {
+  "type": "image",
+  "name": "i15",
+  "label": "Voulez-vous ajouter d'autres photos ?",
+  "hint": "photo contraintes",
+  "relevant": "${i14} != ''"
+ },
+ {
+  "type": "geopoint",
+  "name": "g15",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i15} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c15",
+  "label": "commentaire",
+  "relevant": "${i14} != ''"
+ },
+ null,
+ {
+  "type": "end_group"
+ },
+ {
+  "type": "begin_group",
+  "name": "batiment_group",
+  "label": "Bâtiment",
+  "appearance": "field-list"
+ },
+ {
+  "type": "calculate",
+  "name": "info_bati_color",
+  "calculation": "if(string-length(${info_bati}) > 0, \"#008B8B\", \"#8B0000\")"
+ },
+ {
+  "type": "text",
+  "name": "info_bati",
+  "label": "<span style=\"color:${info_bati_color}\">Informations sur les bâtiments: Age , plans\/DOE à disposition ?<\/span>"
+ },
+ {
+  "type": "calculate",
+  "name": "i21_color",
+  "calculation": "if(string-length(${i21}) > 0, \"#008B8B\", \"#8B0000\")"
+ },
+ {
+  "type": "image",
+  "name": "i21",
+  "label": "<span style=\"color:${i21_color}\">Vues pignon et long pan<\/span>"
+ },
+ {
+  "type": "geopoint",
+  "name": "g21",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i21} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c21",
+  "label": "commentaire"
+ },
+ {
+  "type": "image",
+  "name": "i22",
+  "label": "Voulez-vous ajouter d'autres photos ?",
+  "hint": "Vues pignon et long pan",
+  "relevant": "${i21} != ''"
+ },
+ {
+  "type": "geopoint",
+  "name": "g22",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i22} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c22",
+  "label": "commentaire",
+  "relevant": "${i21} != ''"
+ },
+ {
+  "type": "image",
+  "name": "i23",
+  "label": "Voulez-vous ajouter d'autres photos ?",
+  "hint": "Vues pignon et long pan",
+  "relevant": "${i22} != ''"
+ },
+ {
+  "type": "geopoint",
+  "name": "g23",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i23} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c23",
+  "label": "commentaire",
+  "relevant": "${i22} != ''"
+ },
+ {
+  "type": "image",
+  "name": "i24",
+  "label": "Voulez-vous ajouter d'autres photos ?",
+  "hint": "Vues pignon et long pan",
+  "relevant": "${i23} != ''"
+ },
+ {
+  "type": "geopoint",
+  "name": "g24",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i24} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c24",
+  "label": "commentaire",
+  "relevant": "${i23} != ''"
+ },
+ {
+  "type": "image",
+  "name": "i25",
+  "label": "Vues pignon et long pan",
+  "hint": "Vues pignon et long pan",
+  "relevant": "${i24} != ''"
+ },
+ {
+  "type": "geopoint",
+  "name": "g25",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i25} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c25",
+  "label": "commentaire",
+  "relevant": "${i24} != ''"
+ },
+ null,
+ {
+  "type": "calculate",
+  "name": "d_pign_lpan_color",
+  "calculation": "if(string-length(${d_pign_lpan}) > 0, \"#008B8B\", \"#8B0000\")"
+ },
+ {
+  "type": "text",
+  "name": "d_pign_lpan",
+  "label": "<span style=\"color:${d_pign_lpan_color}\">Dimensions pignons et longpan:<\/span>"
+ },
+ {
+  "type": "calculate",
+  "name": "hbp_hf_color",
+  "calculation": "if(string-length(${hbp_hf}) > 0, \"#008B8B\", \"#8B0000\")"
+ },
+ {
+  "type": "text",
+  "name": "hbp_hf",
+  "label": "<span style=\"color:${hbp_hf_color}\">Hauteur bas de pente, hauteur faîtage (mesure) :<\/span>"
+ },
+ {
+  "type": "calculate",
+  "name": "t_secu_EPI_color",
+  "calculation": "if(string-length(${t_secu_EPI}) > 0, \"#008B8B\", \"#8B0000\")"
+ },
+ {
+  "type": "text",
+  "name": "t_secu_EPI",
+  "label": "<span style=\"color:${t_secu_EPI_color}\">Type de sécurisation (EPI) : échafaudage, garde-corps, etc.<\/span>"
+ },
+ null,
+ null,
+ {
+  "type": "calculate",
+  "name": "i31_color",
+  "calculation": "if(string-length(${i31}) > 0, \"#008B8B\", \"#8B0000\")"
+ },
+ {
+  "type": "image",
+  "name": "i31",
+  "label": "<span style=\"color:${i31_color}\">Accès des engins en périphérie : photos<\/span>"
+ },
+ {
+  "type": "geopoint",
+  "name": "g31",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i31} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c31",
+  "label": "commentaire"
+ },
+ {
+  "type": "image",
+  "name": "i32",
+  "label": "Voulez-vous ajouter d'autres photos ?",
+  "hint": "Accès des engins en périphérie : photos",
+  "relevant": "${i31} != ''"
+ },
+ {
+  "type": "geopoint",
+  "name": "g32",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i32} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c32",
+  "label": "commentaire",
+  "relevant": "${i31} != ''"
+ },
+ {
+  "type": "image",
+  "name": "i33",
+  "label": "Voulez-vous ajouter d'autres photos ?",
+  "hint": "Accès des engins en périphérie : photos",
+  "relevant": "${i32} != ''"
+ },
+ {
+  "type": "geopoint",
+  "name": "g33",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i33} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c33",
+  "label": "commentaire",
+  "relevant": "${i32} != ''"
+ },
+ {
+  "type": "image",
+  "name": "i34",
+  "label": "Voulez-vous ajouter d'autres photos ?",
+  "hint": "Accès des engins en périphérie : photos",
+  "relevant": "${i33} != ''"
+ },
+ {
+  "type": "geopoint",
+  "name": "g34",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i34} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c34",
+  "label": "commentaire",
+  "relevant": "${i33} != ''"
+ },
+ {
+  "type": "image",
+  "name": "i35",
+  "label": "Voulez-vous ajouter d'autres photos ?",
+  "hint": "Accès des engins en périphérie : photos",
+  "relevant": "${i34} != ''"
+ },
+ {
+  "type": "geopoint",
+  "name": "g35",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i35} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c35",
+  "label": "commentaire",
+  "relevant": "${i34} != ''"
+ },
+ {
+  "type": "calculate",
+  "name": "T_charpente_color",
+  "calculation": "if(string-length(${T_charpente}) > 0, \"#008B8B\", \"#8B0000\")"
+ },
+ {
+  "type": "text",
+  "name": "T_charpente",
+  "label": "<span style=\"color:${T_charpente_color}\">Type de charpente<\/span>"
+ },
+ {
+  "type": "calculate",
+  "name": "P_charpente_color",
+  "calculation": "if(string-length(${P_charpente}) > 0, \"#008B8B\", \"#8B0000\")"
+ },
+ {
+  "type": "text",
+  "name": "P_charpente",
+  "label": "<span style=\"color:${P_charpente_color}\">Type de pannes, dimensions des pannes et dimensions des entraxes (important)<\/span>"
+ },
+ null,
+ {
+  "type": "calculate",
+  "name": "i41_color",
+  "calculation": "if(string-length(${i41}) > 0, \"#008B8B\", \"#8B0000\")"
+ },
+ {
+  "type": "image",
+  "name": "i41",
+  "label": "<span style=\"color:${i41_color}\">photo charpente<\/span>"
+ },
+ {
+  "type": "geopoint",
+  "name": "g41",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i41} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c41",
+  "label": "commentaire"
+ },
+ {
+  "type": "image",
+  "name": "i42",
+  "label": "Voulez-vous ajouter d'autres photos ?",
+  "hint": "photo charpente",
+  "relevant": "${i41} != ''"
+ },
+ {
+  "type": "geopoint",
+  "name": "g42",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i42} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c42",
+  "label": "commentaire",
+  "relevant": "${i41} != ''"
+ },
+ {
+  "type": "image",
+  "name": "i43",
+  "label": "Voulez-vous ajouter d'autres photos ?",
+  "hint": "photo charpente",
+  "relevant": "${i42} != ''"
+ },
+ {
+  "type": "geopoint",
+  "name": "g43",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i43} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c43",
+  "label": "commentaire",
+  "relevant": "${i42} != ''"
+ },
+ {
+  "type": "image",
+  "name": "i44",
+  "label": "Voulez-vous ajouter d'autres photos ?",
+  "hint": "photo charpente",
+  "relevant": "${i43} != ''"
+ },
+ {
+  "type": "geopoint",
+  "name": "g44",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i44} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c44",
+  "label": "commentaire",
+  "relevant": "${i43} != ''"
+ },
+ {
+  "type": "image",
+  "name": "i45",
+  "label": "Voulez-vous ajouter d'autres photos ?",
+  "hint": "photo charpente",
+  "relevant": "${i44} != ''"
+ },
+ {
+  "type": "geopoint",
+  "name": "g45",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i45} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c45",
+  "label": "commentaire",
+  "relevant": "${i44} != ''"
+ },
+ null,
+ {
+  "type": "calculate",
+  "name": "M_couver_color",
+  "calculation": "if(string-length(${M_couver}) > 0, \"#008B8B\", \"#8B0000\")"
+ },
+ {
+  "type": "text",
+  "name": "M_couver",
+  "label": "<span style=\"color:${M_couver_color}\">Matériau, isolation de la couverture<\/span>"
+ },
+ null,
+ {
+  "type": "calculate",
+  "name": "i51_color",
+  "calculation": "if(string-length(${i51}) > 0, \"#008B8B\", \"#8B0000\")"
+ },
+ {
+  "type": "image",
+  "name": "i51",
+  "label": "<span style=\"color:${i51_color}\">Photo extérieur et intérieur de la couverture<\/span>"
+ },
+ {
+  "type": "geopoint",
+  "name": "g51",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i51} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c51",
+  "label": "commentaire"
+ },
+ {
+  "type": "image",
+  "name": "i52",
+  "label": "Voulez-vous ajouter d'autres photos ?",
+  "hint": "Photo extérieur et intérieur de la couverture",
+  "relevant": "${i51} != ''"
+ },
+ {
+  "type": "geopoint",
+  "name": "g52",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i52} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c52",
+  "label": "commentaire",
+  "relevant": "${i51} != ''"
+ },
+ {
+  "type": "image",
+  "name": "i53",
+  "label": "Voulez-vous ajouter d'autres photos ?",
+  "hint": "Photo extérieur et intérieur de la couverture",
+  "relevant": "${i52} != ''"
+ },
+ {
+  "type": "geopoint",
+  "name": "g53",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i53} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c53",
+  "label": "commentaire",
+  "relevant": "${i52} != ''"
+ },
+ {
+  "type": "image",
+  "name": "i54",
+  "label": "Voulez-vous ajouter d'autres photos ?",
+  "hint": "Photo extérieur et intérieur de la couverture",
+  "relevant": "${i53} != ''"
+ },
+ {
+  "type": "geopoint",
+  "name": "g54",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i54} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c54",
+  "label": "commentaire",
+  "relevant": "${i53} != ''"
+ },
+ {
+  "type": "image",
+  "name": "i55",
+  "label": "Voulez-vous ajouter d'autres photos ?",
+  "hint": "Photo extérieur et intérieur de la couverture",
+  "relevant": "${i54} != ''"
+ },
+ {
+  "type": "geopoint",
+  "name": "g55",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i55} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c55",
+  "label": "commentaire",
+  "relevant": "${i54} != ''"
+ },
+ null,
+ {
+  "type": "calculate",
+  "name": "R_couver_color",
+  "calculation": "if(string-length(${R_couver}) > 0, \"#008B8B\", \"#8B0000\")"
+ },
+ {
+  "type": "text",
+  "name": "R_couver",
+  "label": "<span style=\"color:${R_couver_color}\">Référence du matériau de couverture (marque, modèle)<\/span>"
+ },
+ {
+  "type": "calculate",
+  "name": "d_couver_color",
+  "calculation": "if(string-length(${d_couver}) > 0, \"#008B8B\", \"#8B0000\")"
+ },
+ {
+  "type": "text",
+  "name": "d_couver",
+  "label": "<span style=\"color:${d_couver_color}\">Dimensions du matériau de couverture, si applicable - important<\/span>"
+ },
+ null,
+ {
+  "type": "calculate",
+  "name": "i61_color",
+  "calculation": "if(string-length(${i61}) > 0, \"#008B8B\", \"#8B0000\")"
+ },
+ {
+  "type": "image",
+  "name": "i61",
+  "label": "<span style=\"color:${i61_color}\">Photos intérieures du bâtiment<\/span>"
+ },
+ {
+  "type": "geopoint",
+  "name": "g61",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i61} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c61",
+  "label": "commentaire"
+ },
+ {
+  "type": "image",
+  "name": "i62",
+  "label": "Voulez-vous ajouter d'autres photos ?",
+  "hint": "Photos intérieures du bâtiment",
+  "relevant": "${i61} != ''"
+ },
+ {
+  "type": "geopoint",
+  "name": "g62",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i62} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c62",
+  "label": "commentaire",
+  "relevant": "${i61} != ''"
+ },
+ {
+  "type": "image",
+  "name": "i63",
+  "label": "Voulez-vous ajouter d'autres photos ?",
+  "hint": "Photos intérieures du bâtiment",
+  "relevant": "${i62} != ''"
+ },
+ {
+  "type": "geopoint",
+  "name": "g63",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i63} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c63",
+  "label": "commentaire",
+  "relevant": "${i62} != ''"
+ },
+ {
+  "type": "image",
+  "name": "i64",
+  "label": "Voulez-vous ajouter d'autres photos ?",
+  "hint": "Photos intérieures du bâtiment",
+  "relevant": "${i63} != ''"
+ },
+ {
+  "type": "geopoint",
+  "name": "g64",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i64} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c64",
+  "label": "commentaire",
+  "relevant": "${i63} != ''"
+ },
+ {
+  "type": "image",
+  "name": "i65",
+  "label": "Voulez-vous ajouter d'autres photos ?",
+  "hint": "Photos intérieures du bâtiment",
+  "relevant": "${i64} != ''"
+ },
+ {
+  "type": "geopoint",
+  "name": "g65",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i65} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c65",
+  "label": "commentaire",
+  "relevant": "${i64} != ''"
+ },
+ null,
+ {
+  "type": "calculate",
+  "name": "c_inter_color",
+  "calculation": "if(string-length(${c_inter}) > 0, \"#008B8B\", \"#8B0000\")"
+ },
+ {
+  "type": "text",
+  "name": "c_inter",
+  "label": "<span style=\"color:${c_inter_color}\">Contraintes accès interieur du bâti durant le chantier:<\/span>"
+ },
+ {
+  "type": "calculate",
+  "name": "renov_gener_color",
+  "calculation": "if(string-length(${renov_gener}) > 0, \"#008B8B\", \"#8B0000\")"
+ },
+ {
+  "type": "text",
+  "name": "renov_gener",
+  "label": "<span style=\"color:${renov_gener_color}\">Renovation: Observation generales: corrosion, humidite, etancheite etc..<\/span>"
+ },
+ {
+  "type": "calculate",
+  "name": "renov_attendus_color",
+  "calculation": "if(string-length(${renov_attendus}) > 0, \"#008B8B\", \"#8B0000\")"
+ },
+ {
+  "type": "text ",
+  "name": "renov_attendus",
+  "label": "<span style=\"color:${renov_attendus_color}\">Préciser les travaux attendus pour la rénovation (désamiantage, désenfumage, translucide, etc.)<\/span>"
+ },
+ null,
+ {
+  "type": "calculate",
+  "name": "i71_color",
+  "calculation": "if(string-length(${i71}) > 0, \"#008B8B\", \"#8B0000\")"
+ },
+ {
+  "type": "image",
+  "name": "i71",
+  "label": "<span style=\"color:${i71_color}\">Photo(s) montrant l'insertion du projet dans son environnement proche <\/span>"
+ },
+ {
+  "type": "geopoint",
+  "name": "g71",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i71} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c71",
+  "label": "commentaire"
+ },
+ {
+  "type": "image",
+  "name": "i72",
+  "label": "Voulez-vous ajouter d'autres photos ?",
+  "hint": "insertion du projet dans son environnement proche ",
+  "relevant": "${i71} != ''"
+ },
+ {
+  "type": "geopoint",
+  "name": "g72",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i72} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c72",
+  "label": "commentaire",
+  "relevant": "${i71} != ''"
+ },
+ {
+  "type": "image",
+  "name": "i73",
+  "label": "Voulez-vous ajouter d'autres photos ?",
+  "hint": "insertion du projet dans son environnement proche ",
+  "relevant": "${i72} != ''"
+ },
+ {
+  "type": "geopoint",
+  "name": "g73",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i73} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c73",
+  "label": "commentaire",
+  "relevant": "${i72} != ''"
+ },
+ {
+  "type": "image",
+  "name": "i74",
+  "label": "Voulez-vous ajouter d'autres photos ?",
+  "hint": "insertion du projet dans son environnement proche ",
+  "relevant": "${i73} != ''"
+ },
+ {
+  "type": "geopoint",
+  "name": "g74",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i74} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c74",
+  "label": "commentaire",
+  "relevant": "${i73} != ''"
+ },
+ {
+  "type": "image",
+  "name": "i75",
+  "label": "Voulez-vous ajouter d'autres photos ?",
+  "hint": "insertion du projet dans son environnement proche ",
+  "relevant": "${i74} != ''"
+ },
+ {
+  "type": "geopoint",
+  "name": "g75",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i75} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c75",
+  "label": "commentaire",
+  "relevant": "${i74} != ''"
+ },
+ null,
+ null,
+ {
+  "type": "calculate",
+  "name": "i81_color",
+  "calculation": "if(string-length(${i81}) > 0, \"#008B8B\", \"#8B0000\")"
+ },
+ {
+  "type": "image",
+  "name": "i81",
+  "label": "<span style=\"color:${i81_color}\">Photo(s) montrant l'insertion du projet dans son environnement lointain  <\/span>"
+ },
+ {
+  "type": "geopoint",
+  "name": "g81",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i81} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c81",
+  "label": "commentaire"
+ },
+ {
+  "type": "image",
+  "name": "i82",
+  "label": "Voulez-vous ajouter d'autres photos ?",
+  "hint": "insertion du projet dans son environnement lointain ",
+  "relevant": "${i81} != ''"
+ },
+ {
+  "type": "geopoint",
+  "name": "g82",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i82} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c82",
+  "label": "commentaire",
+  "relevant": "${i81} != ''"
+ },
+ {
+  "type": "image",
+  "name": "i83",
+  "label": "Voulez-vous ajouter d'autres photos ?",
+  "hint": "insertion du projet dans son environnement lointain ",
+  "relevant": "${i82} != ''"
+ },
+ {
+  "type": "geopoint",
+  "name": "g83",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i83} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c83",
+  "label": "commentaire",
+  "relevant": "${i82} != ''"
+ },
+ {
+  "type": "image",
+  "name": "i84",
+  "label": "Voulez-vous ajouter d'autres photos ?",
+  "hint": "insertion du projet dans son environnement lointain ",
+  "relevant": "${i83} != ''"
+ },
+ {
+  "type": "geopoint",
+  "name": "g84",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i84} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c84",
+  "label": "commentaire",
+  "relevant": "${i83} != ''"
+ },
+ {
+  "type": "image",
+  "name": "i85",
+  "label": "Voulez-vous ajouter d'autres photos ?",
+  "hint": "insertion du projet dans son environnement lointain ",
+  "relevant": "${i84} != ''"
+ },
+ {
+  "type": "geopoint",
+  "name": "g85",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i85} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c85",
+  "label": "commentaire",
+  "relevant": "${i84} != ''"
+ },
+ null,
+ {
+  "type": "end_group"
+ },
+ {
+  "type": "begin_group",
+  "name": "electricite_group",
+  "label": "Electricité",
+  "appearance": "field-list"
+ },
+ null,
+ {
+  "type": "calculate",
+  "name": "t_ombra_color",
+  "calculation": "if(string-length(${t_ombra}) > 0, \"#008B8B\", \"#8B0000\")"
+ },
+ {
+  "type": "text",
+  "name": "t_ombra",
+  "label": "<span style=\"color:${t_ombra_color}\">Masque proche (ombrage): position et dimension (approx.) des obstacles <\/span>"
+ },
+ null,
+ {
+  "type": "calculate",
+  "name": "i91_color",
+  "calculation": "if(string-length(${i91}) > 0, \"#008B8B\", \"#8B0000\")"
+ },
+ {
+  "type": "image",
+  "name": "i91",
+  "label": "<span style=\"color:${i91_color}\">Masque proche (ombrage): photo\/ video de l'environnement proche<\/span>"
+ },
+ {
+  "type": "geopoint",
+  "name": "g91",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i91} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c91",
+  "label": "commentaire"
+ },
+ {
+  "type": "image",
+  "name": "i92",
+  "label": "Voulez-vous ajouter d'autres photos ?",
+  "hint": "Masque proche (ombrage): photo\/ video de l'environnement proche",
+  "relevant": "${i91} != ''"
+ },
+ {
+  "type": "geopoint",
+  "name": "g92",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i92} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c92",
+  "label": "commentaire",
+  "relevant": "${i91} != ''"
+ },
+ {
+  "type": "image",
+  "name": "i93",
+  "label": "Voulez-vous ajouter d'autres photos ?",
+  "hint": "Masque proche (ombrage): photo\/ video de l'environnement proche",
+  "relevant": "${i92} != ''"
+ },
+ {
+  "type": "geopoint",
+  "name": "g93",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i93} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c93",
+  "label": "commentaire",
+  "relevant": "${i92} != ''"
+ },
+ {
+  "type": "image",
+  "name": "i94",
+  "label": "Voulez-vous ajouter d'autres photos ?",
+  "hint": "Masque proche (ombrage): photo\/ video de l'environnement proche",
+  "relevant": "${i93} != ''"
+ },
+ {
+  "type": "geopoint",
+  "name": "g94",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i94} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c94",
+  "label": "commentaire",
+  "relevant": "${i93} != ''"
+ },
+ {
+  "type": "image",
+  "name": "i95",
+  "label": "Voulez-vous ajouter d'autres photos ?",
+  "hint": "Masque proche (ombrage): photo\/ video de l'environnement proche",
+  "relevant": "${i94} != ''"
+ },
+ {
+  "type": "geopoint",
+  "name": "g95",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i95} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c95",
+  "label": "commentaire",
+  "relevant": "${i94} != ''"
+ },
+ null,
+ {
+  "type": "calculate",
+  "name": "vid_ombra_color",
+  "calculation": "if(string-length(${vid_ombra}) > 0, \"#008B8B\", \"#8B0000\")"
+ },
+ {
+  "type": "video",
+  "name": "vid_ombra",
+  "label": "<span style=\"color:${vid_ombra_color}\">Masque proche (ombrage):  video de l'environnement proche? <\/span>"
+ },
+ {
+  "type": "calculate",
+  "name": "pass_dc_color",
+  "calculation": "if(string-length(${pass_dc}) > 0, \"#008B8B\", \"#8B0000\")"
+ },
+ {
+  "type": "text",
+  "name": "pass_dc",
+  "label": "<span style=\"color:${pass_dc_color}\">Passage DC, descentes de chemin de cables<\/span>"
+ },
+ null,
+ {
+  "type": "calculate",
+  "name": "i101_color",
+  "calculation": "if(string-length(${i101}) > 0, \"#008B8B\", \"#8B0000\")"
+ },
+ {
+  "type": "image",
+  "name": "i101",
+  "label": "<span style=\"color:${i101_color}\">Photos des emplacements potentiels du shelter<\/span>"
+ },
+ {
+  "type": "geopoint",
+  "name": "g101",
+  "label": "Géolocalisez votre photo\/ shelter",
+  "required": "yes",
+  "relevant": "${i101} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c101",
+  "label": "commentaire"
+ },
+ {
+  "type": "image",
+  "name": "i102",
+  "label": "Voulez-vous ajouter d'autres photos ?u un autre shelter?",
+  "hint": "photos des emplacements potentiels du shelter",
+  "relevant": "${i101} != ''"
+ },
+ {
+  "type": "geopoint",
+  "name": "g102",
+  "label": "Géolocalisez votre photo\/ shelter",
+  "required": "yes",
+  "relevant": "${i102} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c102",
+  "label": "commentaire",
+  "relevant": "${i101} != ''"
+ },
+ {
+  "type": "image",
+  "name": "i103",
+  "label": "Voulez-vous ajouter d'autres photos ?u un autre shelter?",
+  "hint": "photos des emplacements potentiels du shelter",
+  "relevant": "${i102} != ''"
+ },
+ {
+  "type": "geopoint",
+  "name": "g103",
+  "label": "Géolocalisez votre photo\/ shelter",
+  "required": "yes",
+  "relevant": "${i103} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c103",
+  "label": "commentaire",
+  "relevant": "${i102} != ''"
+ },
+ {
+  "type": "image",
+  "name": "i104",
+  "label": "Voulez-vous ajouter d'autres photos ?u un autre shelter?",
+  "hint": "photos des emplacements potentiels du shelter",
+  "relevant": "${i103} != ''"
+ },
+ {
+  "type": "geopoint",
+  "name": "g104",
+  "label": "Géolocalisez votre photo\/ shelter",
+  "required": "yes",
+  "relevant": "${i104} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c104",
+  "label": "commentaire",
+  "relevant": "${i103} != ''"
+ },
+ {
+  "type": "image",
+  "name": "i105",
+  "label": "Voulez-vous ajouter d'autres photos ?u un autre shelter?",
+  "hint": "photos des emplacements potentiels du shelter",
+  "relevant": "${i104} != ''"
+ },
+ {
+  "type": "geopoint",
+  "name": "g105",
+  "label": "Géolocalisez votre photo\/ shelter",
+  "required": "yes",
+  "relevant": "${i105} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c105",
+  "label": "commentaire",
+  "relevant": "${i104} != ''"
+ },
+ {
+  "type": "image",
+  "name": "i106",
+  "label": "Voulez-vous ajouter d'autres photos ?u un autre shelter?",
+  "hint": "photos des emplacements potentiels du shelter",
+  "relevant": "${i105} != ''"
+ },
+ {
+  "type": "geopoint",
+  "name": "g106",
+  "label": "Géolocalisez votre photo\/ shelter",
+  "required": "yes",
+  "relevant": "${i106} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c106",
+  "label": "commentaire",
+  "relevant": "${i105} != ''"
+ },
+ {
+  "type": "image",
+  "name": "i107",
+  "label": "Voulez-vous ajouter d'autres photos ?u un autre shelter?",
+  "hint": "photos des emplacements potentiels du shelter",
+  "relevant": "${i106} != ''"
+ },
+ {
+  "type": "geopoint",
+  "name": "g107",
+  "label": "Géolocalisez votre photo\/ shelter",
+  "required": "yes",
+  "relevant": "${i107} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c107",
+  "label": "commentaire",
+  "relevant": "${i106} != ''"
+ },
+ {
+  "type": "image",
+  "name": "i108",
+  "label": "Voulez-vous ajouter d'autres photos ?u un autre shelter?",
+  "hint": "photos des emplacements potentiels du shelter",
+  "relevant": "${i107} != ''"
+ },
+ {
+  "type": "geopoint",
+  "name": "g108",
+  "label": "Géolocalisez votre photo\/ shelter",
+  "required": "yes",
+  "relevant": "${i108} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c108",
+  "label": "commentaire",
+  "relevant": "${i107} != ''"
+ },
+ {
+  "type": "image",
+  "name": "i109",
+  "label": "Voulez-vous ajouter d'autres photos ?u un autre shelter?",
+  "hint": "photos des emplacements potentiels du shelter",
+  "relevant": "${i108} != ''"
+ },
+ {
+  "type": "geopoint",
+  "name": "g109",
+  "label": "Géolocalisez votre photo\/ shelter",
+  "required": "yes",
+  "relevant": "${i109} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c109",
+  "label": "commentaire",
+  "relevant": "${i108} != ''"
+ },
+ {
+  "type": "image",
+  "name": "i110",
+  "label": "Voulez-vous ajouter d'autres photos ?u un autre shelter?",
+  "hint": "photos des emplacements potentiels du shelter",
+  "relevant": "${i109} != ''"
+ },
+ {
+  "type": "geopoint",
+  "name": "g110",
+  "label": "Géolocalisez votre photo\/ shelter",
+  "required": "yes",
+  "relevant": "${i110} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c110",
+  "label": "commentaire",
+  "relevant": "${i109} != ''"
+ },
+ null,
+ {
+  "type": "calculate",
+  "name": "pass_AC_color",
+  "calculation": "if(string-length(${pass_AC}) > 0, \"#008B8B\", \"#8B0000\")"
+ },
+ {
+  "type": "text",
+  "name": "pass_AC",
+  "label": "<span style=\"color:${pass_AC_color}\">Passage des câbles AC jusqu'au TGBT (ACI) ou PDL à créer (VT), nature des revêtements à traverser :<\/span>"
+ },
+ {
+  "type": "calculate",
+  "name": "racc_indi_color",
+  "calculation": "if(string-length(${racc_indi}) > 0, \"#008B8B\", \"#8B0000\")"
+ },
+ {
+  "type": "select_one yesno",
+  "name": "racc_indi",
+  "label": "<span style=\"color:${racc_indi_color}\">ACI \/ raccordement indirect ?:<\/span>"
+ },
+ null,
+ {
+  "type": "calculate",
+  "name": "i111_color",
+  "calculation": "if(string-length(${i111}) > 0, \"#008B8B\", \"#8B0000\")"
+ },
+ {
+  "type": "image",
+  "name": "i111",
+  "label": "<span style=\"color:${i111_color}\">Photo TGBT existant <\/span>"
+ },
+ {
+  "type": "geopoint",
+  "name": "g111",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i111} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c111",
+  "label": "commentaire"
+ },
+ {
+  "type": "image",
+  "name": "i112",
+  "label": "Photo extérieur et intérieur de la couverture",
+  "relevant": "${i111} != ''"
+ },
+ {
+  "type": "geopoint",
+  "name": "g112",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i112} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c112",
+  "label": "commentaire",
+  "relevant": "${i111} != ''"
+ },
+ {
+  "type": "image",
+  "name": "i113",
+  "label": "Photo extérieur et intérieur de la couverture",
+  "hint": "Photo TGBT existant ",
+  "relevant": "${i112} != ''"
+ },
+ {
+  "type": "geopoint",
+  "name": "g113",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i113} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c113",
+  "label": "commentaire",
+  "relevant": "${i112} != ''"
+ },
+ {
+  "type": "image",
+  "name": "i114",
+  "label": "Photo extérieur et intérieur de la couverture",
+  "hint": "Photo TGBT existant ",
+  "relevant": "${i113} != ''"
+ },
+ {
+  "type": "geopoint",
+  "name": "g114",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i114} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c114",
+  "label": "commentaire",
+  "relevant": "${i113} != ''"
+ },
+ {
+  "type": "image",
+  "name": "i115",
+  "label": "Photo extérieur et intérieur de la couverture",
+  "hint": "Photo TGBT existant ",
+  "relevant": "${i114} != ''"
+ },
+ {
+  "type": "geopoint",
+  "name": "g115",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i115} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c115",
+  "label": "commentaire",
+  "relevant": "${i114} != ''"
+ },
+ null,
+ {
+  "type": "calculate",
+  "name": "cat_compteur_color",
+  "calculation": "if(string-length(${cat_compteur}) > 0, \"#008B8B\", \"#8B0000\")"
+ },
+ {
+  "type": "text",
+  "name": "cat_compteur",
+  "label": "<span style=\"color:${cat_compteur_color}\">Catégorie du compteur existant (C1 à C5), puissance de raccordement actuelle  <\/span>"
+ },
+ null,
+ {
+  "type": "calculate",
+  "name": "dim_arr_elec_color",
+  "calculation": "if(string-length(${dim_arr_elec}) > 0, \"#008B8B\", \"#8B0000\")"
+ },
+ {
+  "type": "text",
+  "name": "dim_arr_elec",
+  "label": "<span style=\"color:${dim_arr_elec_color}\">Dimensionnement de l’arrivée d’électricité existante (matériau, section) <\/span>"
+ },
+ null,
+ {
+  "type": "calculate",
+  "name": "i121_color",
+  "calculation": "if(string-length(${i121}) > 0, \"#008B8B\", \"#8B0000\")"
+ },
+ {
+  "type": "image",
+  "name": "i121",
+  "label": "<span style=\"color:${i121_color}\">Transformateur existant (public, privé) : photo  <\/span>"
+ },
+ {
+  "type": "geopoint",
+  "name": "g121",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i121} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c121",
+  "label": "commentaire"
+ },
+ {
+  "type": "image",
+  "name": "i122",
+  "label": "Voulez-vous ajouter d'autres photos ?",
+  "hint": "Transformateur existant (public, privé) : photo ",
+  "relevant": "${i121} != ''"
+ },
+ {
+  "type": "geopoint",
+  "name": "g122",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i122} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c122",
+  "label": "commentaire",
+  "relevant": "${i121} != ''"
+ },
+ {
+  "type": "image",
+  "name": "i123",
+  "label": "Voulez-vous ajouter d'autres photos ?",
+  "hint": "Transformateur existant (public, privé) : photo ",
+  "relevant": "${i122} != ''"
+ },
+ {
+  "type": "geopoint",
+  "name": "g123",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i123} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c123",
+  "label": "commentaire",
+  "relevant": "${i122} != ''"
+ },
+ {
+  "type": "image",
+  "name": "i124",
+  "label": "Voulez-vous ajouter d'autres photos ?",
+  "hint": "Transformateur existant (public, privé) : photo ",
+  "relevant": "${i123} != ''"
+ },
+ {
+  "type": "geopoint",
+  "name": "g124",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i124} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c124",
+  "label": "commentaire",
+  "relevant": "${i123} != ''"
+ },
+ {
+  "type": "image",
+  "name": "i125",
+  "label": "Voulez-vous ajouter d'autres photos ?",
+  "hint": "Transformateur existant (public, privé) : photo ",
+  "relevant": "${i124} != ''"
+ },
+ {
+  "type": "geopoint",
+  "name": "g125",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i125} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c125",
+  "label": "commentaire",
+  "relevant": "${i124} != ''"
+ },
+ null,
+ {
+  "type": "calculate",
+  "name": "i131_color",
+  "calculation": "if(string-length(${i131}) > 0, \"#008B8B\", \"#8B0000\")"
+ },
+ {
+  "type": "image",
+  "name": "i131",
+  "label": "<span style=\"color:${i131_color}\">Transformateur existant (public, prive) : plaque ou fiche technique <\/span>"
+ },
+ {
+  "type": "geopoint",
+  "name": "g131",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i131} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c131",
+  "label": "commentaire"
+ },
+ {
+  "type": "image",
+  "name": "i132",
+  "label": "Voulez-vous ajouter d'autres photos ?",
+  "hint": "plaque ou fiche technique",
+  "relevant": "${i131} != ''"
+ },
+ {
+  "type": "geopoint",
+  "name": "g132",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i132} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c132",
+  "label": "commentaire",
+  "relevant": "${i131} != ''"
+ },
+ {
+  "type": "image",
+  "name": "i133",
+  "label": "Voulez-vous ajouter d'autres photos ?",
+  "hint": "plaque ou fiche technique",
+  "relevant": "${i132} != ''"
+ },
+ {
+  "type": "geopoint",
+  "name": "g133",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i133} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c133",
+  "label": "commentaire",
+  "relevant": "${i132} != ''"
+ },
+ {
+  "type": "image",
+  "name": "i134",
+  "label": "Voulez-vous ajouter d'autres photos ?",
+  "hint": "plaque ou fiche technique",
+  "relevant": "${i133} != ''"
+ },
+ {
+  "type": "geopoint",
+  "name": "g134",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i134} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c134",
+  "label": "commentaire",
+  "relevant": "${i133} != ''"
+ },
+ {
+  "type": "image",
+  "name": "i135",
+  "label": "Voulez-vous ajouter d'autres photos ?",
+  "hint": "plaque ou fiche technique",
+  "relevant": "${i134} != ''"
+ },
+ {
+  "type": "geopoint",
+  "name": "g135",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i135} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c135",
+  "label": "commentaire",
+  "relevant": "${i134} != ''"
+ },
+ null,
+ {
+  "type": "end_group"
+ },
+ {
+  "type": "begin_group",
+  "name": "info_compl",
+  "label": "Informations complémentaires ",
+  "appearance": "field-list"
+ },
+ null,
+ {
+  "type": "calculate",
+  "name": "i141_color",
+  "calculation": "if(string-length(${i141}) > 0, \"#008B8B\", \"#8B0000\")"
+ },
+ {
+  "type": "image",
+  "name": "i141",
+  "label": "<span style=\"color:${i141_color}\">Contrat d’électricité (si besoin, pour chaque PdL)  <\/span>"
+ },
+ {
+  "type": "geopoint",
+  "name": "g141",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i141} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c141",
+  "label": "commentaire"
+ },
+ {
+  "type": "image",
+  "name": "i142",
+  "label": "Voulez-vous ajouter d'autres photos ?",
+  "hint": "Contrat d’électricité (si besoin, pour chaque PdL) ",
+  "relevant": "${i141} != ''"
+ },
+ {
+  "type": "geopoint",
+  "name": "g142",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i142} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c142",
+  "label": "commentaire",
+  "relevant": "${i141} != ''"
+ },
+ {
+  "type": "image",
+  "name": "i143",
+  "label": "Voulez-vous ajouter d'autres photos ?",
+  "hint": "Contrat d’électricité (si besoin, pour chaque PdL) ",
+  "relevant": "${i142} != ''"
+ },
+ {
+  "type": "geopoint",
+  "name": "g143",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i143} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c143",
+  "label": "commentaire",
+  "relevant": "${i142} != ''"
+ },
+ {
+  "type": "image",
+  "name": "i144",
+  "label": "Voulez-vous ajouter d'autres photos ?",
+  "hint": "Contrat d’électricité (si besoin, pour chaque PdL) ",
+  "relevant": "${i143} != ''"
+ },
+ {
+  "type": "geopoint",
+  "name": "g144",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i144} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c144",
+  "label": "commentaire",
+  "relevant": "${i143} != ''"
+ },
+ {
+  "type": "image",
+  "name": "i145",
+  "label": "Voulez-vous ajouter d'autres photos ?",
+  "relevant": "${i144} != ''"
+ },
+ {
+  "type": "geopoint",
+  "name": "g145",
+  "label": "Géolocalisez votre photo",
+  "hint": "Contrat d’électricité (si besoin, pour chaque PdL) ",
+  "required": "yes",
+  "relevant": "${i145} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c145",
+  "label": "commentaire",
+  "relevant": "${i144} != ''"
+ },
+ null,
+ {
+  "type": "calculate",
+  "name": "i151_color",
+  "calculation": "if(string-length(${i151}) > 0, \"#008B8B\", \"#8B0000\")"
+ },
+ {
+  "type": "image",
+  "name": "i151",
+  "label": "<span style=\"color:${i151_color}\">Facture électrique (pour le calcul des taxes) <\/span>"
+ },
+ {
+  "type": "geopoint",
+  "name": "g151",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i151} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c151",
+  "label": "commentaire"
+ },
+ {
+  "type": "image",
+  "name": "i152",
+  "label": "Voulez-vous ajouter d'autres photos ?",
+  "hint": "Facture électrique (pour le calcul des taxes) ",
+  "relevant": "${i151} != ''"
+ },
+ {
+  "type": "geopoint",
+  "name": "g152",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i152} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c152",
+  "label": "commentaire",
+  "relevant": "${i151} != ''"
+ },
+ {
+  "type": "image",
+  "name": "i153",
+  "label": "Voulez-vous ajouter d'autres photos ?",
+  "hint": "Facture électrique (pour le calcul des taxes) ",
+  "relevant": "${i152} != ''"
+ },
+ {
+  "type": "geopoint",
+  "name": "g153",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i153} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c153",
+  "label": "commentaire",
+  "relevant": "${i152} != ''"
+ },
+ {
+  "type": "image",
+  "name": "i154",
+  "label": "Voulez-vous ajouter d'autres photos ?",
+  "hint": "Facture électrique (pour le calcul des taxes) ",
+  "relevant": "${i153} != ''"
+ },
+ {
+  "type": "geopoint",
+  "name": "g154",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i154} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c154",
+  "label": "commentaire",
+  "relevant": "${i153} != ''"
+ },
+ {
+  "type": "image",
+  "name": "i155",
+  "label": "Voulez-vous ajouter d'autres photos ?",
+  "hint": "Facture électrique (pour le calcul des taxes) ",
+  "relevant": "${i154} != ''"
+ },
+ {
+  "type": "geopoint",
+  "name": "g155",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i155} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c155",
+  "label": "commentaire",
+  "relevant": "${i154} != ''"
+ },
+ null,
+ {
+  "type": "calculate",
+  "name": "i161_color",
+  "calculation": "if(string-length(${i161}) > 0, \"#008B8B\", \"#8B0000\")"
+ },
+ {
+  "type": "image",
+  "name": "i161",
+  "label": "<span style=\"color:${i161_color}\">Autorisation Enedis de collecte des donnees de conso <\/span>"
+ },
+ {
+  "type": "geopoint",
+  "name": "g161",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i161} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c161",
+  "label": "commentaire"
+ },
+ {
+  "type": "image",
+  "name": "i162",
+  "label": "Voulez-vous ajouter d'autres photos ?",
+  "hint": "Autorisation Enedis de collecte des donnees de conso ",
+  "relevant": "${i161} != ''"
+ },
+ {
+  "type": "geopoint",
+  "name": "g162",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i162} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c162",
+  "label": "commentaire",
+  "relevant": "${i161} != ''"
+ },
+ {
+  "type": "image",
+  "name": "i163",
+  "label": "Voulez-vous ajouter d'autres photos ?",
+  "hint": "Autorisation Enedis de collecte des donnees de conso ",
+  "relevant": "${i162} != ''"
+ },
+ {
+  "type": "geopoint",
+  "name": "g163",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i163} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c163",
+  "label": "commentaire",
+  "relevant": "${i162} != ''"
+ },
+ {
+  "type": "image",
+  "name": "i164",
+  "label": "Voulez-vous ajouter d'autres photos ?",
+  "hint": "Autorisation Enedis de collecte des donnees de conso ",
+  "relevant": "${i163} != ''"
+ },
+ {
+  "type": "geopoint",
+  "name": "g164",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i164} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c164",
+  "label": "commentaire",
+  "relevant": "${i163} != ''"
+ },
+ {
+  "type": "image",
+  "name": "i165",
+  "label": "Voulez-vous ajouter d'autres photos ?",
+  "hint": "Autorisation Enedis de collecte des donnees de conso ",
+  "relevant": "${i164} != ''"
+ },
+ {
+  "type": "geopoint",
+  "name": "g165",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i165} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c165",
+  "label": "commentaire",
+  "relevant": "${i164} != ''"
+ },
+ null,
+ {
+  "type": "calculate",
+  "name": "i171_color",
+  "calculation": "if(string-length(${i171}) > 0, \"#008B8B\", \"#8B0000\")"
+ },
+ {
+  "type": "image",
+  "name": "i171",
+  "label": "<span style=\"color:${i161_color}\">Indication sur le profil de consommation et les évolutions possibles futures <\/span>"
+ },
+ {
+  "type": "geopoint",
+  "name": "g171",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i171} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c171",
+  "label": "commentaire"
+ },
+ {
+  "type": "image",
+  "name": "i172",
+  "label": "Voulez-vous ajouter d'autres photos ?",
+  "hint": "Indication sur le profil de consommation et les évolutions possibles futures",
+  "relevant": "${i171} != ''"
+ },
+ {
+  "type": "geopoint",
+  "name": "g172",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i172} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c172",
+  "label": "commentaire",
+  "relevant": "${i171} != ''"
+ },
+ {
+  "type": "image",
+  "name": "i173",
+  "label": "Voulez-vous ajouter d'autres photos ?",
+  "hint": "Indication sur le profil de consommation et les évolutions possibles futures",
+  "relevant": "${i172} != ''"
+ },
+ {
+  "type": "geopoint",
+  "name": "g173",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i173} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c173",
+  "label": "commentaire",
+  "relevant": "${i172} != ''"
+ },
+ {
+  "type": "image",
+  "name": "i174",
+  "label": "Voulez-vous ajouter d'autres photos ?",
+  "hint": "Indication sur le profil de consommation et les évolutions possibles futures",
+  "relevant": "${i173} != ''"
+ },
+ {
+  "type": "geopoint",
+  "name": "g174",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i174} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c174",
+  "label": "commentaire",
+  "relevant": "${i173} != ''"
+ },
+ {
+  "type": "image",
+  "name": "i175",
+  "label": "Voulez-vous ajouter d'autres photos ?",
+  "hint": "Indication sur le profil de consommation et les évolutions possibles futures",
+  "relevant": "${i174} != ''"
+ },
+ {
+  "type": "geopoint",
+  "name": "g175",
+  "label": "Géolocalisez votre photo",
+  "required": "yes",
+  "relevant": "${i175} != ''"
+ },
+ {
+  "type": "text",
+  "name": "c175",
+  "label": "commentaire",
+  "relevant": "${i174} != ''"
+ },
+ null,
+ {
+  "type": "end_group"
+ }
+],
+"choices":[
+ {
+  "list_name": "yesno",
+  "name": "OUI",
+  "label": "OUI"
+ },
+ {
+  "list_name": "yesno",
+  "name": "NON",
+  "label": "NON"
+ }
+],
+"settings":[
+ {
+  "form_title": "App_VT_EnerVivo",
+  "form_id": "App_VT_EnerVivo",
+  "version": 30122024,
+  "instance_name": "${projet}",
+  "default_language": "Français"
+ }
+],
+"entities":[
+  "list_name": null,
+  "label": null
+],
+"👋 Start here":[
+ {
+  "Last update": "12\/5\/2024",
+  "License": "CC BY-SA"
+ },
+ null,
+ {
+  "Column2": "-   The XLSForm standard lets you create powerful forms for the ODK ecosystem."
+ },
+ {
+  "Column2": "-   A form is defined using 4 sheets:"
+ },
+ {
+  "Column2": "     -  The survey sheet defines the questions and logic for your form. It is required."
+ },
+ {
+  "Column2": "     -  The choices sheet defines choices to use in select questions."
+ },
+ {
+  "Column2": "     -  The settings sheet defines form metadata and configuration."
+ },
+ {
+  "Column2": "     -  The entities sheet is used to create entities from form values for use in longitudinal workflows, case management, and more."
+ },
+ null,
+ {
+  "Column2": "-   The template sheets contain the most common columns. See the Translations and Additional columns sheets for other columns."
+ },
+ {
+  "Column2": "-   Hover over column names to see a note about how they can be used."
+ },
+ {
+  "Column2": "-   Columns colored in green on the survey and choices sheets can be translated."
+ },
+ null,
+ {
+  "Column2": "💡 Use File > Make a copy to make a copy of this template that you can edit"
+ },
+ {
+  "Column2": "💡 Using a consistent column order makes it easier to copy and paste between different form definitions. "
+ },
+ {
+  "Column2": "💡 Consider hiding columns you don't need instead of deleting them."
+ },
+ null,
+ {
+  "Column2": "Resources"
+ },
+ {
+  "Column2": "📖 ODK form design docs"
+ },
+ {
+  "Column2": "🧵 XLSForm tutorial"
+ },
+ {
+  "Column2": "💬 Forum for support"
+ },
+ {
+  "Column2": "💡 Have ideas for improving this template? Share them here!"
+ },
+ null,
+ {
+  "Column2": "Credits"
+ },
+ {
+  "Column2": "Styling ideas from yxf script "
+ },
+ {
+  "Column2": "Inspiration from CartONG's XLSform cheat sheet"
+ },
+ null,
+ {
+  "Column2": "Changelog"
+ },
+ {
+  "Column2": "12\/5\/2024",
+  " Getting started with XLSForms": "Add counter appearance"
+ },
+ {
+  "Column2": "7\/8\/2024",
+  " Getting started with XLSForms": "Add masked appearance"
+ },
+ {
+  "Column2": "7\/1\/2024",
+  " Getting started with XLSForms": "Add table-list, hidden-answer and printer appearances"
+ },
+ {
+  "Column2": "2\/13\/2024",
+  " Getting started with XLSForms": "no-calendar appearance does not work for Enketo"
+ },
+ {
+  "Column2": "1\/29\/2024",
+  " Getting started with XLSForms": "Add entity_id and update_if to \"Additional columns\", add table-list to appearances, add grid theme reference"
+ },
+ {
+  "Column2": "11\/2\/2023",
+  " Getting started with XLSForms": "Add decimal and text numbers for thousands-sep appearance; add filters on types, appearances and additional columns sheets (thanks @wroos!)"
+ },
+ {
+  "Column2": "10\/24\/2023",
+  " Getting started with XLSForms": "Add Make a copy tip to readme"
+ },
+ {
+  "Column2": "10\/16\/2023",
+  " Getting started with XLSForms": "v2023.1 release"
+ }
+],
+"⚙️ Types":[
+ null,
+ {
+  "Types": "The survey sheet's 'type' column determines how the user will be prompted or what will be computed by the form",
+  "Column6": "📋 Form with all question types"
+ },
+ {
+  "Types": "💡 See the Appearances sheet to learn how to modify how a question is displayed to users"
+ },
+ {
+  "Types": "💡 The parameters column is sometimes used to configure aspects of a question type that are not appearance-related"
+ },
+ null,
+ {
+  "Types": "Field type",
+  "Column3": "Description",
+  "Column4": "Collect mobile forms",
+  "Column5": "Enketo web forms",
+  "Column6": "Parameters"
+ },
+ {
+  "Types": "text",
+  "Column3": "Prompt the user for a text response",
+  "Column4": "Yes",
+  "Column5": "Yes"
+ },
+ {
+  "Types": "integer",
+  "Column3": "Prompt the user for an integer response",
+  "Column4": "Yes",
+  "Column5": "Yes"
+ },
+ {
+  "Types": "decimal",
+  "Column3": "Prompt the user for a decimal response",
+  "Column4": "Yes",
+  "Column5": "Yes"
+ },
+ {
+  "Types": "note",
+  "Column3": "Show the user some text",
+  "Column4": "Yes",
+  "Column5": "Yes"
+ },
+ {
+  "Types": "calculate",
+  "Column3": "Record the result of an expression specified in the calculation column",
+  "Column4": "Yes",
+  "Column5": "Yes"
+ },
+ {
+  "Types": "select_one list_name",
+  "Column3": "Prompt the user to select one choice out of a list",
+  "Column4": "Yes",
+  "Column5": "Yes",
+  "Column6": "randomize, seed"
+ },
+ {
+  "Types": "select_multiple list_name",
+  "Column3": "Prompt the user to select multiple choices out of a list",
+  "Column4": "Yes",
+  "Column5": "Yes",
+  "Column6": "randomize, seed"
+ },
+ {
+  "Types": "select_one_from_file file.extension",
+  "Column3": "Prompt the user to select one choice out of a list of choices from a file",
+  "Column4": "Yes",
+  "Column5": "Yes",
+  "Column6": "randomize, seed, value, label"
+ },
+ {
+  "Types": "select_multiple_from_file file.extension",
+  "Column3": "Prompt the user to select multiple choices out of a list of choices from a file",
+  "Column4": "Yes",
+  "Column5": "Yes",
+  "Column6": "randomize, seed, value, label"
+ },
+ {
+  "Types": "begin_repeat",
+  "Column3": "Indicate the start of a group of questions that are repeated",
+  "Column4": "Yes",
+  "Column5": "Yes"
+ },
+ {
+  "Types": "end_repeat",
+  "Column3": "Indicate the end of a group of questions that are repeated",
+  "Column4": "Yes",
+  "Column5": "Yes"
+ },
+ {
+  "Types": "begin_group",
+  "Column3": "Indicate the start of a group of questions",
+  "Column4": "Yes",
+  "Column5": "Yes"
+ },
+ {
+  "Types": "end_group",
+  "Column3": "Indicate the end of a group of questions",
+  "Column4": "Yes",
+  "Column5": "Yes"
+ },
+ {
+  "Types": "geopoint",
+  "Column3": "Prompt the user to record a single point (a location)",
+  "Column4": "Yes",
+  "Column5": "Yes",
+  "Column6": "capture-accuracy, warning-accuracy, allow-mock-accuracy"
+ },
+ {
+  "Types": "geotrace",
+  "Column3": "Prompt the user to record a line of points",
+  "Column4": "Yes",
+  "Column5": "Yes"
+ },
+ {
+  "Types": "geoshape",
+  "Column3": "Prompt the user to record a polygon of points (first and last point are identical)",
+  "Column4": "Yes",
+  "Column5": "Yes"
+ },
+ {
+  "Types": "start-geopoint",
+  "Column3": "Record the highest-accuracy point within 20 seconds of creating the blank filled form",
+  "Column4": "Yes",
+  "Column5": "Yes"
+ },
+ {
+  "Types": "range",
+  "Column3": "Prompt the user to select a value in an integer or decimal range defined in the parameters column",
+  "Column4": "Yes",
+  "Column5": "Yes",
+  "Column6": "start, end, step"
+ },
+ {
+  "Types": "image",
+  "Column3": "Prompt the user for an image",
+  "Column4": "Yes",
+  "Column5": "Yes",
+  "Column6": "max-pixels"
+ },
+ {
+  "Types": "barcode",
+  "Column3": "Prompt the user to scan a barcode",
+  "Column4": "Yes",
+  "Column5": "No"
+ },
+ {
+  "Types": "audio",
+  "Column3": "Prompt the user to record or select audio",
+  "Column4": "Yes",
+  "Column5": "Yes",
+  "Column6": "quality (normal, low, voice-only, external; defaults to normal)"
+ },
+ {
+  "Types": "background-audio",
+  "Column3": "Record audio in the background while filling out the form",
+  "Column4": "Yes",
+  "Column5": "No",
+  "Column6": "quality (normal, low, voice-only)"
+ },
+ {
+  "Types": "video",
+  "Column3": "Prompt the user to record or select a video",
+  "Column4": "Yes",
+  "Column5": "Yes"
+ },
+ {
+  "Types": "file",
+  "Column3": "Prompt the user to attach a file",
+  "Column4": "Yes",
+  "Column5": "Yes"
+ },
+ {
+  "Types": "date",
+  "Column3": "Prompt the user for a date response",
+  "Column4": "Yes",
+  "Column5": "Yes"
+ },
+ {
+  "Types": "time",
+  "Column3": "Prompt the user for a time response",
+  "Column4": "Yes",
+  "Column5": "Yes"
+ },
+ {
+  "Types": "datetime",
+  "Column3": "Prompt the user for a date and time response",
+  "Column4": "Yes",
+  "Column5": "Yes"
+ },
+ {
+  "Types": "rank",
+  "Column3": "Prompt the user to rank a list of choices",
+  "Column4": "Yes",
+  "Column5": "Yes"
+ },
+ {
+  "Types": "csv-external",
+  "Column3": "Attach a CSV to the form for querying. Specify its name without extension in the name column",
+  "Column4": "Yes",
+  "Column5": "Yes"
+ },
+ {
+  "Types": "acknowledge",
+  "Column3": "Prompt the user to acknowledge a statement",
+  "Column4": "Yes",
+  "Column5": "Yes"
+ },
+ {
+  "Types": "start",
+  "Column3": "Record the time when the blank filled form is created",
+  "Column4": "Yes",
+  "Column5": "Yes"
+ },
+ {
+  "Types": "end",
+  "Column3": "Record the time the last time that the filled form is finalized",
+  "Column4": "Yes",
+  "Column5": "Yes"
+ },
+ {
+  "Types": "today",
+  "Column3": "Record the date when the blank filled form is created",
+  "Column4": "Yes",
+  "Column5": "Yes"
+ },
+ {
+  "Types": "deviceid",
+  "Column3": "Record the install's unique ID (reset on uninstall or cache clear)",
+  "Column4": "Yes",
+  "Column5": "Yes"
+ },
+ {
+  "Types": "username",
+  "Column3": "Record the username",
+  "Column4": "Yes",
+  "Column5": "Yes"
+ },
+ {
+  "Types": "phonenumber",
+  "Column3": "Record the phone number stored in app settings",
+  "Column4": "Yes",
+  "Column5": "No"
+ },
+ {
+  "Types": "email",
+  "Column3": "Record the email stored in app settings",
+  "Column4": "Yes",
+  "Column5": "No"
+ },
+ {
+  "Types": "audit",
+  "Column3": "Log user's actions while filling out the form as an attached CSV",
+  "Column4": "Yes",
+  "Column5": "No",
+  "Column6": "location-priority, location-min-interval, location-max-age, track-changes, track-changes-reasons, identify-user"
+ }
+],
+"👀 Appearances":[
+ null,
+ {
+  "Appearances": "Appearances configure how a question will be displayed to the user on their device"
+ },
+ {
+  "Appearances": "💡 Most appearances for the same question type can be combined by using a space-separated list"
+ },
+ null,
+ {
+  "Appearances": "Appearance name",
+  "Column3": "Description",
+  "Column4": "Type(s) used with",
+  "Column5": "Collect mobile forms",
+  "Column6": "Enketo web forms"
+ },
+ {
+  "Appearances": "numbers",
+  "Column3": "Restrict input to numeric symbols but save the value as text",
+  "Column4": "text",
+  "Column5": "Yes",
+  "Column6": "depends on browser"
+ },
+ {
+  "Appearances": "multiline",
+  "Column3": "Show a text area that is multiple lines tall",
+  "Column4": "text",
+  "Column5": "No (text boxes grow vertically as needed)",
+  "Column6": "Yes"
+ },
+ {
+  "Appearances": "url",
+  "Column3": "Show a button to launch the website represented by this field's value",
+  "Column4": "text",
+  "Column5": "Yes",
+  "Column6": "Yes"
+ },
+ {
+  "Appearances": "ex:",
+  "Column3": "Add the Android app ID of a custom application after the ex: prefix to launch that application",
+  "Column4": "text integer decimal image audio video file",
+  "Column5": "Yes",
+  "Column6": "No"
+ },
+ {
+  "Appearances": "thousands-sep",
+  "Column3": "Automatically add locale-dependent thousands separators on screen but not in submissions",
+  "Column4": "integer, decimal, text numbers",
+  "Column5": "Yes",
+  "Column6": "Yes"
+ },
+ {
+  "Appearances": "bearing",
+  "Column3": "Prompt the user to capture the device-reported compass direction",
+  "Column4": "decimal",
+  "Column5": "Yes",
+  "Column6": "No"
+ },
+ {
+  "Appearances": "vertical",
+  "Column3": "Show a vertical range slider instead of the default horizontal slider",
+  "Column4": "range",
+  "Column5": "Yes",
+  "Column6": "Yes"
+ },
+ {
+  "Appearances": "no-ticks",
+  "Column3": "Hide tick marks for a range slider (can combine with vertical)",
+  "Column4": "range",
+  "Column5": "Yes",
+  "Column6": "Yes"
+ },
+ {
+  "Appearances": "picker",
+  "Column3": "Show values in a range as a list of options that can be picked",
+  "Column4": "range",
+  "Column5": "Yes",
+  "Column6": "Yes"
+ },
+ {
+  "Appearances": "rating",
+  "Column3": "Show values in a range as star ratings",
+  "Column4": "range",
+  "Column5": "Yes",
+  "Column6": "Yes"
+ },
+ {
+  "Appearances": "new",
+  "Column3": "Only show the option to capture new media, not to select existing",
+  "Column4": "image audio video",
+  "Column5": "Yes",
+  "Column6": "depends on browser"
+ },
+ {
+  "Appearances": "new-front",
+  "Column3": "Only show the option to capture a new picture from front (selfie) camera ",
+  "Column4": "image",
+  "Column5": "Yes",
+  "Column6": "depends on browser"
+ },
+ {
+  "Appearances": "draw",
+  "Column3": "Prompt the user to draw an image",
+  "Column4": "image",
+  "Column5": "Yes",
+  "Column6": "Yes"
+ },
+ {
+  "Appearances": "annotate",
+  "Column3": "Prompt the user to annotate (draw on) an image",
+  "Column4": "image",
+  "Column5": "Yes",
+  "Column6": "Yes"
+ },
+ {
+  "Appearances": "signature",
+  "Column3": "Prompt the user to sign their signature",
+  "Column4": "image",
+  "Column5": "Yes",
+  "Column6": "Yes"
+ },
+ {
+  "Appearances": "no-calendar",
+  "Column3": "Show date picker as spinners rather than a calendar",
+  "Column4": "date datetime",
+  "Column5": "Yes",
+  "Column6": "No"
+ },
+ {
+  "Appearances": "month-year",
+  "Column3": "Show date picker for month and year only",
+  "Column4": "date",
+  "Column5": "Yes",
+  "Column6": "depends on browser"
+ },
+ {
+  "Appearances": "year",
+  "Column3": "Show date picker for year only",
+  "Column4": "date",
+  "Column5": "Yes",
+  "Column6": "some desktop browsers"
+ },
+ {
+  "Appearances": "ethiopian",
+  "Column3": "Show date picker using the Ethiopian calendar",
+  "Column4": "date",
+  "Column5": "Yes",
+  "Column6": "No"
+ },
+ {
+  "Appearances": "coptic",
+  "Column3": "Show date picker using the Coptic calendar",
+  "Column4": "date",
+  "Column5": "Yes",
+  "Column6": "No"
+ },
+ {
+  "Appearances": "islamic",
+  "Column3": "Show date picker using the Islamic calendar",
+  "Column4": "date",
+  "Column5": "Yes",
+  "Column6": "No"
+ },
+ {
+  "Appearances": "bikram-sambat",
+  "Column3": "Show date picker using the Bikram Sambat (Nepali) calendar",
+  "Column4": "date",
+  "Column5": "Yes",
+  "Column6": "No"
+ },
+ {
+  "Appearances": "myanmar",
+  "Column3": "Show date picker using the Myanmar calendar",
+  "Column4": "date",
+  "Column5": "Yes",
+  "Column6": "No"
+ },
+ {
+  "Appearances": "persian",
+  "Column3": "Show date picker using the Persian calendar",
+  "Column4": "date",
+  "Column5": "Yes",
+  "Column6": "No"
+ },
+ {
+  "Appearances": "placement-map",
+  "Column3": "Show a map that the user can manually place and adjust a location on",
+  "Column4": "geopoint",
+  "Column5": "Yes",
+  "Column6": "Yes"
+ },
+ {
+  "Appearances": "maps",
+  "Column3": "Show a map that the user can capture device location on (but not manually adjust)",
+  "Column4": "geopoint",
+  "Column5": "Yes",
+  "Column6": "Yes"
+ },
+ {
+  "Appearances": "hide-input",
+  "Column3": "Show a larger map and hide geo input fields by default",
+  "Column4": "geopoint geotrace geoshape",
+  "Column5": "N\/A",
+  "Column6": "Yes"
+ },
+ {
+  "Appearances": "minimal",
+  "Column3": "Show a text prompt that when tapped shows all choices",
+  "Column4": "all selects",
+  "Column5": "Yes",
+  "Column6": "Yes"
+ },
+ {
+  "Appearances": "search",
+  "Column3": "Allow the user to search the list of available choices",
+  "Column4": "all selects",
+  "Column5": "Yes",
+  "Column6": "Yes (select one only)"
+ },
+ {
+  "Appearances": "quick",
+  "Column3": "Advance to the next screen immediately after a choice is selected",
+  "Column4": "select_one select_one_from_file",
+  "Column5": "Yes",
+  "Column6": "No"
+ },
+ {
+  "Appearances": "columns-pack",
+  "Column3": "Show available choices with as may as possible on one line",
+  "Column4": "all selects",
+  "Column5": "Yes",
+  "Column6": "Yes"
+ },
+ {
+  "Appearances": "columns",
+  "Column3": "Show available choices in 2, 3, 4 or 5 columns depending on screen size",
+  "Column4": "all selects",
+  "Column5": "Yes",
+  "Column6": "Yes"
+ },
+ {
+  "Appearances": "columns-n",
+  "Column3": "Show available choices in the specified number (n) of columns",
+  "Column4": "all selects",
+  "Column5": "Yes",
+  "Column6": "Yes"
+ },
+ {
+  "Appearances": "no-buttons",
+  "Column3": "Show available choices without radio buttons \/ check boxes",
+  "Column4": "all selects",
+  "Column5": "Yes",
+  "Column6": "Yes"
+ },
+ {
+  "Appearances": "image-map",
+  "Column3": "Show available choices mapped to the svg file specified in the image column",
+  "Column4": "all selects",
+  "Column5": "Yes",
+  "Column6": "Yes"
+ },
+ {
+  "Appearances": "likert",
+  "Column3": "Show available choices horizontally as a likert scale",
+  "Column4": "select_one select_one_from_file",
+  "Column5": "Yes",
+  "Column6": "Yes"
+ },
+ {
+  "Appearances": "map",
+  "Column3": "Show available choices on a map using each choice's geometry column",
+  "Column4": "select_one select_one_from_file",
+  "Column5": "Yes",
+  "Column6": "No"
+ },
+ {
+  "Appearances": "field-list",
+  "Column3": "Show all questions in the field list on the same screen",
+  "Column4": "begin_group begin_repeat",
+  "Column5": "Yes",
+  "Column6": "Yes (only applies in pages mode)"
+ },
+ {
+  "Appearances": "label",
+  "Column3": "Show only option labels to define the top row of a select grid",
+  "Column4": "all selects",
+  "Column5": "Yes",
+  "Column6": "Yes"
+ },
+ {
+  "Appearances": "list-nolabel",
+  "Column3": "Show only radio buttons or checkboxes to define the inside of a select grid",
+  "Column4": "all selects",
+  "Column5": "Yes",
+  "Column6": "Yes"
+ },
+ {
+  "Appearances": "list",
+  "Column3": "Show horizontal radio buttons or checkboxes with their labels",
+  "Column4": "all selects",
+  "Column5": "Yes",
+  "Column6": "Yes"
+ },
+ {
+  "Appearances": "table-list",
+  "Column3": "Shortcut for building a grid of list and list-nolabel questions with a title",
+  "Column4": "begin_group",
+  "Column5": "Yes",
+  "Column6": "Yes"
+ },
+ {
+  "Appearances": "hidden-answer",
+  "Column3": "Hides the scanned barcode value",
+  "Column4": "barcode",
+  "Column5": "Yes",
+  "Column6": "No"
+ },
+ {
+  "Appearances": "printer",
+  "Column3": "Send the value of the question to the printer app for preview and printing",
+  "Column4": "text",
+  "Column5": "Yes",
+  "Column6": "No"
+ },
+ {
+  "Appearances": "masked",
+  "Column3": "Show asterisks (*) instead of what the user is entering",
+  "Column4": "text",
+  "Column5": "Yes",
+  "Column6": "No"
+ },
+ {
+  "Appearances": "counter",
+  "Column3": "Show buttons for incrementing and decrementing",
+  "Column4": "integer",
+  "Column5": "Yes",
+  "Column6": "No"
+ }
+],
+"🔀 Relevance":[
+ null,
+ {
+  "Relevance": "Relevance determines whether a question will be displayed to a user or not. It lets you define branching or skip logic in your forms."
+ },
+ {
+  "Relevance": "💡 Apply relevance to groups or repeats to skip or show multiple questions at once"
+ },
+ {
+  "Relevance": "💡 You can use relevance on a note to provide additional guidance or to confirm a value that could possibly be out of range"
+ },
+ {
+  "Relevance": "💡 You can meet almost any requirement with available functions"
+ },
+ null,
+ {
+  "Relevance": "Example relevance expression",
+  "Column3": "Description"
+ },
+ {
+  "Relevance": "${q1} != ''",
+  "Column3": "This question will appear if q1 was not blank"
+ },
+ {
+  "Relevance": "${age} < 18",
+  "Column3": "This question will only appear if previously-entered age was less than 18"
+ },
+ {
+  "Relevance": "${random_value} < 0.5",
+  "Column3": "If ${random_value} is a calculate with calculation once(random()), this question will be shown half the times that this form is launched"
+ },
+ {
+  "Relevance": "(${computed_months} >= 6 and ${computed_months} < 24) or (${months} >= 6 and ${months} < 24)",
+  "Column3": "Conditions can be combined using and, or"
+ },
+ {
+  "Relevance": "selected(${q1}, 'nurse')",
+  "Column3": "This question will only appear if 'nurse' was selected in q1"
+ },
+ {
+  "Relevance": "selected(${q1}, -88) or selected(${q2}, -88) or selected(${q3}, -88)",
+  "Column3": "This question will appear if -88 was selected in any of q1, q2 and q3"
+ },
+ {
+  "Relevance": "${q1} < 12.5 or selected(${q2}, 'y')",
+  "Column3": "This question will appear if q1's value was less than 12.5 or if 'y' was selected in q2"
+ },
+ {
+  "Relevance": "not(selected(${q2}, 'b'))",
+  "Column3": "This question will appear if 'b' was not selected in q2"
+ },
+ {
+  "Relevance": "string-length(${q1}) > 3",
+  "Column3": "This question will appear if the answer to q1 had more than 3 characters"
+ },
+ {
+  "Relevance": "false()",
+  "Column3": "This question will never appear. This can be useful when creating a form that is intended to be customized for different environments. Questions or sections that are optional can be marked as non-relevant in the template."
+ }
+],
+"🔒 Constraints":[
+ null,
+ {
+  "Constraints": "Constraints limit the answers allowed in a field."
+ },
+ {
+  "Constraints": "💡 Constraints are not evaluated if the answer is blank. To require answers, make the question required."
+ },
+ {
+  "Constraints": "💡 You can meet almost any requirement with available functions"
+ },
+ null,
+ {
+  "Constraints": "Example constraint expression",
+  "Column3": "Description"
+ },
+ {
+  "Constraints": ". <= 10",
+  "Column3": "Answer must be a number less or equal to 10"
+ },
+ {
+  "Constraints": ". > 10.51 and . < 18.39",
+  "Column3": "Answer must be a number between 10.51 and 18.39, excluding those values"
+ },
+ {
+  "Constraints": "string-length(.) > 5",
+  "Column3": "Answer must be longer than 5 characters"
+ },
+ {
+  "Constraints": ". >= today()",
+  "Column3": "Answer must be a date today or later"
+ },
+ {
+  "Constraints": ". >= date('2015-08-01')",
+  "Column3": "Answer must be a date August 1st 2015 or later"
+ },
+ {
+  "Constraints": "count-selected(.) <= 3",
+  "Column3": "Answer to this multi select question can only include 0, 1, 2 or 3 choices but no more"
+ },
+ {
+  "Constraints": "not(selected(., 'none') and count-selected(.) > 1)",
+  "Column3": "Answer to this multi select question may not include both 'none' and other selections"
+ },
+ {
+  "Constraints": "if(selected(., 'none'), count-selected(.) = 1, true())",
+  "Column3": "Another way of expressing the same concept as above: if the 'none' choice is selected, the total number of choices selected must be 1. Otherwise, any number of selections is allowed. Replace true() with another expression to specify a requirement when 'none' is not selected"
+ },
+ {
+  "Constraints": "if(selected(., 'none'), count-selected(.) = 1, count-selected(.) = 2)",
+  "Column3": "Answer to this multi select question can either be 'none' or exactly two choices not including 'none'"
+ },
+ {
+  "Constraints": "regex(., '^[A-Za-z]{0,6}$')",
+  "Column3": "Answer to this text question may have up to 6 letters"
+ },
+ {
+  "Constraints": "regex(.,'^[A-Z]{3}+_+[A-Z]{3}+_+[0-9]{4}+_+[0-9]{3,4}$')",
+  "Column3": "Answer must respect a specific structure (for example this one allows the following : CAR_PRC_2015_048)"
+ },
+ {
+  "Constraints": "regex(., '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[a-zA-Z]{2,4}$')",
+  "Column3": "Answer to this text question must have an email address structure (note: this is not exact but filters out obviously-wrong inputs)"
+ },
+ {
+  "Constraints": "regex(.,'^\\(?[0-9]{3}\\)?-?[0-9]{3}-?[0-9]{4}$')",
+  "Column3": "Answer to this text question must have a North American phone number structure"
+ },
+ {
+  "Constraints": ". = 9999 or (selected(${q1}, 'yes') and . <= 0) or (selected(${q1}, 'no') and . > 0)",
+  "Column3": "The answer 9999 is always accepted to represent 'unknown'. Otherwise, this question's answer depends on ${q1}'s answer: if ${q1} was 'yes', then this answer must be a negative number. If ${q1} was 'no', this answer must be a positive number."
+ }
+],
+"🌐 Translations":[
+ null,
+ {
+  "Translations": "XLSForms can be translated into multiple languages. "
+ },
+ {
+  "Translations": "💡 The text on navigation buttons and other system elements are translated as part of the application that shows your form, not as part of the form definition."
+ },
+ {
+  "Translations": "💡 Form titles can't be translated."
+ },
+ {
+  "Translations": "💡 We recommend that you design your form in one language, test it extensively, and then translate it."
+ },
+ {
+  "Translations": "💡 You can specify a default language in the settings sheet."
+ },
+ {
+  "Translations": "⚠️ There is no fallback language. Specify a translation for every column used in the form. Otherwise, a dash (-) will be shown for text that is not translated to the current language."
+ },
+ {
+  "Translations": "⚠️ If you use the choices sheet, make sure that all of its text and media columns have translations for all languages."
+ },
+ null,
+ {
+  "Translations": "Add new language"
+ },
+ {
+  "Translations": "Duplicate all columns that have user-facing text or media to add new language."
+ },
+ {
+  "Translations": "These are highlighted in the survey and choices sheets:"
+ },
+ null,
+ {
+  "Translations": "label"
+ },
+ {
+  "Translations": "hint"
+ },
+ {
+  "Translations": "guidance_hint"
+ },
+ {
+  "Translations": "constraint_message"
+ },
+ {
+  "Translations": "required_message"
+ },
+ {
+  "Translations": "image"
+ },
+ {
+  "Translations": "audio"
+ },
+ {
+  "Translations": "video"
+ },
+ null,
+ {
+  "Translations": "language name and code"
+ },
+ {
+  "Translations": "For each language that you need, add the language name and the language code after a :: separator. "
+ },
+ {
+  "Translations": "You must do this for every column with text or media. Find language codes."
+ },
+ {
+  "Translations": "The language name is what data collectors will see. We generally recommend using the language name in the language itself."
+ },
+ null,
+ {
+  "Translations": "label::Español (es)"
+ },
+ {
+  "Translations": "hint::Español (es)"
+ },
+ null,
+ {
+  "Translations": "Example with English and Spanish translations"
+ },
+ null,
+ {
+  "Translations": "survey"
+ },
+ {
+  "Column3": "type",
+  "Column4": "name",
+  "Column5": "label::English (en)",
+  "Column6": "label::Español (es)",
+  "Column7": "hint::English (en)",
+  "Column8": "hint::Español (es)",
+  "Column9": "image::English (en)",
+  "Column10": "image::Español (es)"
+ },
+ null,
+ {
+  "Translations": "choices"
+ },
+ {
+  "Column3": "list_name",
+  "Column4": "name",
+  "Column5": "label::English (en)",
+  "Column6": "label::Español (es)",
+  "Column7": "image::English (en)",
+  "Column8": "image::Español (es)"
+ }
+],
+"🔍 List lookups":[
+ null,
+ {
+  "List lookups": "You can look up values from lists specified in the choices sheet, entity lists, attached CSVs, attached geoJSON files and attached XML files by using the instance function."
+ },
+ {
+  "List lookups": "💡 Choice filters, used to filter lists of items for use in selects, are the same as filter expressions"
+ },
+ {
+  "List lookups": "💡 These queries use a subset of the XPath language. ${} expressions get translated to XPath to access fields in the form"
+ },
+ null,
+ {
+  "List lookups": "instance('list_name')\/root\/item[filter expression]\/desired_property"
+ },
+ {
+  "List lookups": "list_name",
+  "Column3": "The name of the list to get value(s) from"
+ },
+ {
+  "List lookups": "filter expression",
+  "Column3": "An expression for filtering the items in the list. You can filter the list down to one single item or multiple. Filter expressions can use functions and any other logic."
+ },
+ {
+  "List lookups": "property",
+  "Column3": "The property you want to access for items that match the filter"
+ },
+ null,
+ null,
+ {
+  "List lookups": "Common type of lookup"
+ },
+ {
+  "List lookups": "The most common type of query looks a single item up based on one property and gives back another property's value"
+ },
+ {
+  "List lookups": "instance('list_name')\/root\/item[match_property = ${q1}]\/desired_property"
+ },
+ {
+  "List lookups": "list_name",
+  "Column3": "The name of the list to get value(s) from"
+ },
+ {
+  "List lookups": "match_property",
+  "Column3": "The property used to look up an item"
+ },
+ {
+  "List lookups": "${q1}",
+  "Column3": "A value used to look up the item (e.g., a unique id)"
+ },
+ {
+  "List lookups": "desired_property",
+  "Column3": "The property whose value is returned"
+ },
+ null,
+ {
+  "List lookups": "Example query",
+  "Column7": "Description"
+ },
+ {
+  "List lookups": "instance('crops')\/root\/item[name = ${crop}]\/average_yield",
+  "Column7": "In a list of crops, use a previously-entered crop name to look up that crop's average yield."
+ },
+ {
+  "List lookups": "instance('days')\/root\/item[number = ${day_number}]\/blood_pressure_needed",
+  "Column7": "In a list of days, use a previously-entered day number to look up whether or not blood pressure needs to be entered that day."
+ },
+ {
+  "List lookups": "instance('data_collectors')\/root\/item[name = ${data_collector_id}]\/visits_complete",
+  "Column7": "In a list of data collector, use a previously-entered data collector id to look up how many visits the data collector completed."
+ },
+ {
+  "List lookups": "instance('houses')\/root\/item[name = ${hhid}]\/geometry",
+  "Column7": "In a list of houses, use a previously-entered household id to look up the geometry (location) of that house."
+ },
+ {
+  "List lookups": "count(instance('participants')\/root\/item[answered = 'no']\/label)",
+  "Column7": "Filter a list of participants to only those who have not answered yet. Count the number of matches."
+ },
+ {
+  "List lookups": "sum(instance('patients')\/root\/item[birth_year > 1978][gender = 'female']\/child_count)",
+  "Column7": "Filter a list of patients to only those with birth year greater than 1978, then filter that list to females only, then get the child count for each of them. The full expression computes the sum of all children of females born after 1978."
+ },
+ {
+  "List lookups": "instance('children')\/root\/item[household = ${hhid}][number = position(..)]\/first_name",
+  "Column7": "Get the first name of the Nth child in a household with id ${hhid} where N is the position of the current repeat in the list of all repeat instances."
+ },
+ null,
+ {
+  "List lookups": "💡 You can use these expressions with repeats, too. For example, if ${repeat} is a repeat in your form, you can write "
+ },
+ {
+  "List lookups": "      ${repeat}[filter expression]\/desired_field to access a field in a repeat instance or sum(${repeat}[filter expression]\/desired_field) to get the sum of all repeat instances that match the filter."
+ },
+ null,
+ {
+  "List lookups": "💡  If you are looking values up in an attached CSV, you can also use the pulldata function. In Collect, this may have better performance for lists with many tens of thousands of elements."
+ },
+ {
+  "List lookups": "        pulldata(list_name, desired_property, match_property, ${q1})"
+ },
+ null,
+ {
+  "List lookups": "        The pulldata expression above is equivalent to:"
+ },
+ {
+  "List lookups": "        instance('list_name')\/root\/item[match_property = ${q1}]\/desired_property"
+ }
+],
+"✅ Additional columns":[
+ null,
+ {
+  "Additional columns": "The default survey, choices, settings and entities sheets include the most common columns. You may find it useful to add some of the columns described below."
+ },
+ null,
+ {
+  "Additional columns": "survey sheet",
+  "Column5": "Collect mobile forms",
+  "Column6": "Enketo web forms",
+  "Column7": "Translatable"
+ },
+ {
+  "Column3": "save_to",
+  "Column4": "When using Entities, used to specify the Entity property to save the form field's value to",
+  "Column5": "Yes",
+  "Column6": "Yes",
+  "Column7": "N\/A"
+ },
+ {
+  "Column3": "guidance_hint",
+  "Column4": "Used to display additional information to data collectors in a way that is less visible than hints",
+  "Column5": "Yes",
+  "Column6": "Yes",
+  "Column7": "Yes"
+ },
+ {
+  "Column3": "required_message",
+  "Column4": "A custom message to replace the generic message when a required value is not filled in",
+  "Column5": "Yes",
+  "Column6": "Yes",
+  "Column7": "Yes"
+ },
+ {
+  "Column3": "read_only",
+  "Column4": "An expression used to determine whether the question's value can be edited or not",
+  "Column5": "Yes",
+  "Column6": "Static values only (yes\/no)",
+  "Column7": "N\/A"
+ },
+ {
+  "Column3": "instance::my_attribute",
+  "Column4": "A custom instance attribute which will be included along with its value in submitted data",
+  "Column5": "Yes",
+  "Column6": "Yes",
+  "Column7": "N\/A"
+ },
+ {
+  "Column3": "bind::my_attribute",
+  "Column4": "A custom bind attribute. Generally used when an application has a special custom feature",
+  "Column5": "Yes",
+  "Column6": "Yes",
+  "Column7": "N\/A"
+ },
+ {
+  "Column3": "body::my_attribute",
+  "Column4": "A custom body attribute. Generally used when an application has a special custom feature",
+  "Column5": "Yes",
+  "Column6": "Yes",
+  "Column7": "N\/A"
+ },
+ null,
+ {
+  "Additional columns": "choices sheet"
+ },
+ {
+  "Column3": "image",
+  "Column4": "An image to show with this choice",
+  "Column5": "Yes",
+  "Column6": "Yes",
+  "Column7": "Yes"
+ },
+ {
+  "Column3": "audio",
+  "Column4": "An audio file to show with this choice",
+  "Column5": "Yes",
+  "Column6": "Yes",
+  "Column7": "Yes"
+ },
+ {
+  "Column3": "video",
+  "Column4": "A video file to show with this choice",
+  "Column5": "Yes",
+  "Column6": "Yes",
+  "Column7": "Yes"
+ },
+ {
+  "Column3": "geometry",
+  "Column4": "A special column that represents a choice's point, trace or shape to be displayed on a map with the map appearance",
+  "Column5": "Yes",
+  "Column6": "No",
+  "Column7": "N\/A"
+ },
+ null,
+ {
+  "Additional columns": "settings sheet"
+ },
+ {
+  "Column3": "public_key",
+  "Column4": "Public key for encrypting form instances when your server is not trusted",
+  "Column5": "Yes",
+  "Column6": "Yes",
+  "Column7": "N\/A"
+ },
+ {
+  "Column3": "submission_url",
+  "Column4": "Specify a URL to make submissions to regardless of how the app is configured",
+  "Column5": "Yes",
+  "Column6": "No",
+  "Column7": "N\/A"
+ },
+ {
+  "Column3": "allow_choice_duplicates",
+  "Column4": "Add with 'yes' value if you want a single list on the choices sheet to have multiple choices with the same name",
+  "Column5": "Yes",
+  "Column6": "Yes",
+  "Column7": "N\/A"
+ },
+ null,
+ {
+  "Additional columns": "entities sheet"
+ },
+ {
+  "Column3": "create_if",
+  "Column4": "A condition that a filled form must meet for an entity to be created from it",
+  "Column5": "Yes",
+  "Column6": "Yes",
+  "Column7": "N\/A"
+ },
+ {
+  "Column3": "entity_id",
+  "Column4": "The id of the entity that should be updated by filling this form",
+  "Column5": "Yes",
+  "Column6": "Yes",
+  "Column7": "N\/A"
+ },
+ {
+  "Column3": "update_if",
+  "Column4": "A condition that a filled form must meet for an entity to be updated from it (with entity_id)",
+  "Column5": "Yes",
+  "Column6": "Yes",
+  "Column7": "N\/A"
+ }
+]
+}
