@@ -1,1 +1,1 @@
-"# Application_vitite_technique" 
+"# L'objectif de cette application est de collecter et traiter des données techniques afin de générer des rapports contenant ces informations. Ces rapports sont stockés sur un serveur-hyperviseur et automatiquement injectés dans le SharePoint de l'entreprise. Les photos géolocalisées sont affichées sur une carte interactive avec des marqueurs permettant d'afficher l'image correspondante ainsi que son lien hébergé sur le serveur. Ces images sont également générées sur le serveur avant d'être intégrées au SharePoint de l'entreprise." 
